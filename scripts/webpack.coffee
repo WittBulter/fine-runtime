@@ -48,7 +48,7 @@ module.exports = (env = {}) ->
   resolve:
     extensions: ['.coffee', '.js']
 
-  devtool: 'source-map'
+  devtool: (env.development and 'source-map') or ''
 
   devServer:
     historyApiFallback: true
