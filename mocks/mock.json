@@ -1,0 +1,19 @@
+{
+  "sides": [{
+    "label": "起步",
+    "index": true,
+    "url": "guide.e112e.html"
+  }, {
+    "label": "文档",
+    "url": "docus.1eec22.html"
+  }],
+  "menus": [{
+    "label": "github",
+    "url": "xxx.html"
+  }, {
+    "label": "donate",
+    "url": "https://github.com"
+  }]
+}
+
+
