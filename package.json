@@ -1,14 +1,18 @@
 {
-  "name": "fine-runtime",
+  "name": "@fine.sh/runtime",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "npm run pre_build && webpack-dev-server --config temp/w.js -p -w --env.development",
-    "build": "npm run pre_build && webpack --config temp/w.js -p",
+    "build": "npm run clean && npm run pre_build && webpack --config temp/w.js -p",
     "pre_build": "rm -rf temp && coffee -co temp/w.js scripts/webpack.coffee",
-    "clean": "rm -rf dist temp"
+    "clean": "rm -rf dist"
   },
+  "files": [
+    "dist/",
+    "README.md"
+  ],
   "author": "WittBulter (nanazuimeng123@gmail.com)",
   "license": "MIT",
   "devDependencies": {
