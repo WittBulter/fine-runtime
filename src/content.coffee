@@ -1,4 +1,6 @@
+loader_html = require './loader'
 window.fine_content = {}
+
 
 make_path = (sides) ->
   path = decodeURI location.hash
@@ -10,32 +12,33 @@ make_path = (sides) ->
   return index.url if index?
   sides[0].url
 
-make_iframe = (path) ->
-  url = "#{location.origin}/#{path}"
-  "<div class=\"container-position\">
-    <div class=\"container\">
-      <iframe src=\"#{url}\" frameborder=\"0\"></iframe>
-    </div>
-  </div>"
-
 listen = (settings) ->
   return if window.fine_listen_hash?
   window.fine_listen_hash = true
   window.onhashchange = () ->
-    iframe = make_iframe (make_path settings.sides)
-    window.fine_content.innerHTML = ''
-    window.fine_content.innerHTML = iframe
+    update_content make_path settings.sides
 
+update_content = (path) ->
+  url = "#{location.origin}/#{path}"
+  insert = (text) ->
+    window.fine_content.innerHTML = ''
+    window.fine_content.innerHTML = text
+  loader_html url
+    .then insert
+    .catch (err) -> console.log err
+    
 content = (settings) ->
   listen settings
-  path = make_path settings.sides
+  box = document.createElement 'div'
+  box.setAttribute 'class', 'container-position'
+  container = document.createElement 'div'
+  container.setAttribute 'class', 'container'
+  window.fine_content = container
+  box.appendChild container
   
-  iframe = make_iframe path
-  el = document.createElement 'div'
-  window.fine_content = el
-  el.innerHTML = iframe
-  el
+  update_content make_path settings.sides
+  box
+  
 
 module.exports =
   run: content
-
