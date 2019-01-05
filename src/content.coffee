@@ -15,7 +15,7 @@ make_path = (sides) ->
 listen = (settings) ->
   return if window.fine_listen_hash?
   window.fine_listen_hash = true
-  window.onhashchange = () ->
+  window.addEventListener 'hashchange', () ->
     update_content make_path settings.sides
 
 update_content = (path) ->
