@@ -21,8 +21,11 @@ listen = (settings) ->
 update_content = (path) ->
   url = "#{location.origin}/#{path}"
   insert = (text) ->
+    _div = document.createElement 'div'
+    _div.setAttribute 'class', 'container-inner'
+    _div.innerHTML = text
     window.fine_content.innerHTML = ''
-    window.fine_content.innerHTML = text
+    window.fine_content.appendChild _div
   loader_html url
     .then insert
     .catch (err) -> console.log err
