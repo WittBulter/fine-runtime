@@ -9,18 +9,21 @@
 ###
 make_li = (side) ->
   "<li>
-    <a href=\"#/#{side.label}\">#{side.label}</a>
+    <p class=\"chapter link\">
+      <a href=\"#/#{side.label}\">#{side.label}</a>
+    </p>
   </li>"
 
-make_ul = (list) ->
-  "<div>
-    <ul>#{list}</ul>
+make_ul = (list, settings) ->
+  "<div class=\"side-position\">
+    <div class=\"side-title\"><h2>#{settings.project_name or 'preview'}</h2></div>
+    <ul class=\"side-list\">#{list}</ul>
   </div>"
 
-make_sides = (side_list) ->
+make_sides = (settings) ->
   list = ''
-  list += make_li item for item in side_list
-  html = make_ul list
+  list += make_li item for item in settings.sides
+  html = make_ul list, settings
   el = document.createElement 'div'
   el.innerHTML = html
   el

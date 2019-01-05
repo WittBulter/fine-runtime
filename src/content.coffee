@@ -1,7 +1,6 @@
 window.fine_content = {}
 
 make_path = (sides) ->
-  console.log 111
   path = decodeURI location.hash
   path = path.replace /^\#\//, ''
   has_side = sides.find (li) -> li.label is path
@@ -13,20 +12,23 @@ make_path = (sides) ->
 
 make_iframe = (path) ->
   url = "#{location.origin}/#{path}"
-  "<iframe src=\"#{url}\" frameborder=\"0\">
-  </iframe>"
+  "<div class=\"container-position\">
+    <div class=\"container\">
+      <iframe src=\"#{url}\" frameborder=\"0\"></iframe>
+    </div>
+  </div>"
 
-listen = (sides) ->
+listen = (settings) ->
   return if window.fine_listen_hash?
   window.fine_listen_hash = true
   window.onhashchange = () ->
-    iframe = make_iframe make_path sides
+    iframe = make_iframe (make_path settings.sides)
     window.fine_content.innerHTML = ''
     window.fine_content.innerHTML = iframe
 
-content = (sides) ->
-  listen sides
-  path = make_path sides
+content = (settings) ->
+  listen settings
+  path = make_path settings.sides
   
   iframe = make_iframe path
   el = document.createElement 'div'

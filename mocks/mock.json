@@ -1,4 +1,5 @@
 {
+  "project_name": "hello",
   "sides": [{
     "label": "起步",
     "index": true,

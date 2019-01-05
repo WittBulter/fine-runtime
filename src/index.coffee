@@ -5,9 +5,9 @@ app = document.getElementById 'app'
 
 settings = window.fine_settings
 
-side_element = sides.run settings.sides
+side_element = sides.run settings
 
-conent_element = content.run settings.sides
+conent_element = content.run settings
 
 
 app.appendChild side_element
