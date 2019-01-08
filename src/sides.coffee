@@ -34,10 +34,15 @@ listen = (settings) ->
   window.addEventListener 'hashchange', () ->
     set_active find_label settings.sides
 
-make_li = (side) ->
+make_li = (side, parent_name) ->
+  if side.children and Array.isArray side.children
+    child_lis = make_li child, side.label for child in side.children
+    return "<h2>#{side.label}</h2><ul>#{child_lis}</ul>"
+
+  url = (parent_name and "#{parent_name}/#{side.label}") or side.label
   "<li>
     <p class=\"chapter link\">
-      <a href=\"#/#{side.label}\">#{side.label}</a>
+      <a href=\"#/#{url}\">#{side.label}</a>
     </p>
   </li>"
 

@@ -1,20 +1,20 @@
 {
-  "project_name": "hello",
-  "sides": [{
-    "label": "起步",
-    "index": true,
-    "url": "guide.e112e.html"
-  }, {
-    "label": "文档",
-    "url": "docus.1eec22.html"
-  }],
-  "menus": [{
-    "label": "github",
-    "url": "xxx.html"
-  }, {
-    "label": "donate",
-    "url": "https://github.com"
-  }]
+  "sides": [
+    {
+      "category": null,
+      "label": "README",
+      "url": "README.63925823e1ac9a49b05f11b6e052aa17.html",
+      "index": true
+    },
+    {
+      "label": "test",
+      "children": [
+        {
+          "url": "README.b37786e832cdd640d20948d021c188f8.html",
+          "label": "README"
+        }
+      ]
+    }
+  ],
+  "project_name": null
 }
-
-
