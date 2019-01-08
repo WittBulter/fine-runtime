@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run pre_build && webpack-dev-server --config temp/w.js -p -w --env.development",
     "build": "npm run clean && npm run pre_build && webpack --config temp/w.js -p",
+    "deploy": "npm run build && npm publish --access=public",
     "pre_build": "rm -rf temp && coffee -co temp/w.js scripts/webpack.coffee",
     "clean": "rm -rf dist"
   },
