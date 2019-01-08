@@ -6,6 +6,13 @@ make_path = (sides) ->
   path = decodeURI location.hash
   path = path.replace /^\#\//, ''
   has_side = sides.find (li) -> li.label is path
+
+  has_catalog = /\//.test path
+  if has_catalog
+    [group, name] = path.split '/'
+    side = sides.find (li) -> li.label is group
+    has_side = (side.children.find (li) -> li.label is name) if side and side.children
+
   return has_side.url if has_side?
   
   index = sides.find (li) -> Boolean li?.index
