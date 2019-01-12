@@ -14,5 +14,9 @@
       "index": true
     }
   ],
-  "project_name": "fine_cli"
+  "project_name": "fine_cli",
+  "links": [{
+    "name": "github",
+    "url": "github.com"
+  }]
 }
