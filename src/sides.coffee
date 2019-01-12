@@ -58,9 +58,13 @@ make_ul = (list, settings) ->
   "<div class=\"side-title\"><h2>#{settings.project_name or 'preview'}</h2></div>
   <ul class=\"side-list\">#{list}</ul>"
 
+order = (sides) ->
+  sides.sort (a, b) -> (a.weight or 10) - (b.weight or 10)
+
 make_sides = (settings) ->
+  sides = order settings.sides
   list = ''
-  list += make_li item for item in settings.sides
+  list += make_li item for item in sides
   html = make_ul list, settings
   el = document.createElement 'div'
   el.setAttribute 'class', 'side-position'

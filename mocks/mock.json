@@ -3,18 +3,16 @@
     {
       "category": null,
       "label": "README",
-      "url": "README.63925823e1ac9a49b05f11b6e052aa17.html",
-      "index": true
+      "url": "50_README.5e77afdb9a862b9c8ae18a83be1103a6.html",
+      "weight": "50"
     },
     {
-      "label": "test",
-      "children": [
-        {
-          "url": "README.b37786e832cdd640d20948d021c188f8.html",
-          "label": "README"
-        }
-      ]
+      "category": null,
+      "label": "README_CN",
+      "url": "README_CN.96d25f72008a98919a7b855908250a74.html",
+      "weight": 10,
+      "index": true
     }
   ],
-  "project_name": null
+  "project_name": "fine_cli"
 }
